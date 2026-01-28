@@ -1,4 +1,7 @@
-# WPPclean.py
+# WPPclean.py - Python TCP server for WhatsApp AI chatbot integration.
+# Handles incoming messages from Node.js WhatsApp client.
+# Manages per-user conversation history and multiprocessing for inference.
+
 import socket
 import threading
 import json

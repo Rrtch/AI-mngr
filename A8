@@ -1,3 +1,6 @@
+# A8 - Chat completion simulation with memory using Phi-3-mini model.
+# Implements llm_create_chat_completion function for multi-turn conversations.
+
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 

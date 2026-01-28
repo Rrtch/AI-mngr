@@ -1,4 +1,7 @@
-# download_pipeline_defaults.py
+# cuda test.py - Hugging Face pipeline default model downloader.
+# Downloads and caches default models for various NLP tasks.
+# Useful for pre-caching models before offline use.
+
 from transformers import pipeline
 
 tasks = [

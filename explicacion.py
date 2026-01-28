@@ -1,3 +1,6 @@
+# explicacion.py - Example code snippets demonstrating interact and ObltrtNOapt functions.
+# Shows basic function structure for AI interaction and word extraction filtering.
+
 # crear funcion de suma
 def interact(system_input,system_prompt=P3):    
      

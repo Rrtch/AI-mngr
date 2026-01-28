@@ -1,3 +1,6 @@
+# A1.py - Chat implementation using Phi-3-mini model with chat template formatting.
+# Uses apply_chat_template for proper message formatting with system prompts.
+
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 

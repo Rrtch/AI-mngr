@@ -1,3 +1,6 @@
+# FuncionesTime.py - Time utility functions module.
+# Provides wait, time-elapsed, and current-moment calculation functions.
+
 import time
 
 #Funciones de tiempo

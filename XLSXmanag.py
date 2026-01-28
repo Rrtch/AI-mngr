@@ -1,3 +1,7 @@
+# XLSXmanag.py - Excel database management module for user records.
+# Provides CRUD operations: create, read, update (full and partial) for user data.
+# Uses pandas for Excel file operations with the FissioT_DataBase.
+
 import pandas as pd
 
 ruta="C:/Users/casti/Desktop/DeskDrive/FissioT_DataBase.xlsx"

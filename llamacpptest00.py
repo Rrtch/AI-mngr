@@ -1,3 +1,7 @@
+# llamacpptest00.py - Basic LlamaCPP streaming test with Mistral-7B model.
+# Demonstrates two approaches: streaming generation and single-shot inference.
+# Includes execution time measurement for performance comparison.
+
 from llama_cpp import Llama
 
 #para cronometrar

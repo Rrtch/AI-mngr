@@ -1,3 +1,6 @@
+# LlamaCPPtst.py - Interactive chat test script using LlamaCPP with Mistral-7B.
+# Features conversation history, streaming output, and execution time tracking.
+
 from llama_cpp import Llama
 
 #para cronometrar

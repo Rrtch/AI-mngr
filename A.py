@@ -1,3 +1,6 @@
+# A.py - Interactive chat script using Phi-3-mini model with CUDA support.
+# Provides a simple command-line interface for conversing with the AI model.
+
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 

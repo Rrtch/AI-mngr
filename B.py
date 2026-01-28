@@ -1,3 +1,6 @@
+# B.py - Chat completion handler with message compression detection for Phi-3-mini.
+# Monitors token count and warns when user/assistant messages need compression.
+
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 
