@@ -1,3 +1,7 @@
+# WPPdefault.py - Default Python TCP server for WhatsApp integration.
+# Handles user sessions with conversation history and job management.
+# Uses multiprocessing for parallel AI inference with A3.Histeract.
+
 from LVL2 import *  
 import socket
 import threading

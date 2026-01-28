@@ -1,3 +1,7 @@
+# A9.py - Advanced conversation handler with message compression for Phi-3-mini.
+# Features automatic message summarization when context grows too large.
+# Includes Conversa function for building formatted conversation prompts.
+
 import torch,os
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 # === Configuración ===

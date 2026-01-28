@@ -1,3 +1,7 @@
+// WPPclean.js - WhatsApp Web client with Python TCP bridge integration.
+// Receives WhatsApp messages and forwards them to Python backend for AI processing.
+// Sends AI responses back to WhatsApp users.
+
 const net = require("net");
 const { Client, LocalAuth } = require("whatsapp-web.js");
 const qrcode = require("qrcode-terminal");

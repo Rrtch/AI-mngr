@@ -1,3 +1,6 @@
+# A4.py - Pipeline-based chat using Phi-3-mini model.
+# Uses Hugging Face pipeline API for text generation with custom parameters.
+
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 import torch
 

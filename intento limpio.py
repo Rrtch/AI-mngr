@@ -1,4 +1,8 @@
-﻿import gc
+# intento limpio.py - LlamaCPP inference test with GPU layer offloading.
+# Tests Mistral-7B GGUF model with n_gpu_layers for CUDA acceleration.
+# Interactive chat loop with basic prompt-response functionality.
+
+import gc
 from llama_cpp import Llama
 import os
 os.add_dll_directory(r"C:\Users\casti\llama.cpp\build\bin\Release")

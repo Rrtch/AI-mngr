@@ -1,3 +1,7 @@
+# atest.py - Performance test script for Phi-3-mini model inference.
+# Measures tokens per second generation speed with CUDA acceleration.
+# Tests basic text completion with configurable parameters.
+
 import time, torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 

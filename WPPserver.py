@@ -1,3 +1,7 @@
+# WPPserver.py - Simple Flask HTTP server for AI message processing.
+# Receives POST requests with user messages and returns AI responses.
+# Enables browser-based chat interface with CORS support.
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from LVL2 import *

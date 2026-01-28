@@ -1,4 +1,7 @@
-# WPPclean.py
+# WPPintell.py - Python TCP server for WhatsApp (port 5052).
+# Alternative backend server with same functionality as WPPclean.py.
+# Manages per-user history and multiprocessing inference.
+
 import socket
 import threading
 import json

@@ -1,4 +1,8 @@
-﻿import A3
+# LVL1.py - High-level AI functions module with user data management.
+# Provides getXfrom for entity extraction, update_param, Memorize, and verification functions.
+# Integrates with XLSXmanag for user database operations.
+
+import A3
 import os,re
 from FuncionesTime import *
 from XLSXmanag import *

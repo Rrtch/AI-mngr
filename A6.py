@@ -1,3 +1,6 @@
+# A6.py - Chat script with simplified interaction using Phi-3-mini model.
+# Provides ephemer and interact functions for basic chat functionality.
+
 import torch,os
 from transformers import AutoTokenizer, AutoModelForCausalLM
 

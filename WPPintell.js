@@ -1,3 +1,7 @@
+// WPPintell.js - Multi-backend WhatsApp connector with failover support.
+// Attempts connection to multiple Python backends (ports 5050-5053).
+// Adds backend-specific prefixes to responses for identification.
+
 const net = require("net");
 const { Client, LocalAuth } = require("whatsapp-web.js");
 const qrcode = require("qrcode-terminal");

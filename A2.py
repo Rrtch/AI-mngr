@@ -1,3 +1,6 @@
+# A2.py - Chat implementation using Phi-3-mini with structured message format.
+# Uses role-based message dictionaries for system, user, and assistant interactions.
+
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 

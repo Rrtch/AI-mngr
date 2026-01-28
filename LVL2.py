@@ -1,4 +1,8 @@
-﻿from LVL1 import *
+# LVL2.py - Topic-based chatbot module with keyword classification.
+# Provides DRCteract for dynamic response context and KeyRing for intent detection.
+# Loads topic-specific content from Topics/ directory.
+
+from LVL1 import *
 
 '''
 import pyttsx3

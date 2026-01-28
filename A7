@@ -1,3 +1,6 @@
+# A7 - Threaded chat generation with timeout support using Phi-3-mini.
+# Implements parallel execution with configurable time limits for responses.
+
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import threading,torch
 

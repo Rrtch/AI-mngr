@@ -1,3 +1,6 @@
+# A5.py - Direct model inference script using Phi-3-mini.
+# Demonstrates direct tokenization and generation without pipeline abstraction.
+
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 import torch
 
