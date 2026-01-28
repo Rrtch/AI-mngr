@@ -23,7 +23,7 @@ if model is None:
     tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
     model = AutoModelForCausalLM.from_pretrained(
         MODEL_PATH,
-        dtype=torch.float16,
+        torch_dtype=torch.float16,
         device_map="cuda"
     )
 print("✅ Modelo cargado correctamente")      
@@ -94,18 +94,20 @@ def ObltrtNOapt(q):     #No 1 word? No return cicle - filter
 
 def Histeract(user_input,history="",system_specific=P3, system_general="" ):
     
+    prompt = []  # Initialize prompt as a list
+    
      # 1. Instrucciones generales al inicio
     if system_general:
-        prompt += {"role": "system", "content": system_general}
-    # 2. Historial acumulado
+        prompt.append({"role": "system", "content": system_general})
+    # 2. Historial acumulado (as user context since 'history' role is not standard)
     if history:
-        prompt += {"role": "history", "content": history}
-    # 4. Instrucciones precisas al final
+        prompt.append({"role": "user", "content": f"Previous context: {history}"})
+    # 3. Instrucciones precisas al final
     if system_specific:
-        prompt += {"role": "system", "content": system_specific}
+        prompt.append({"role": "system", "content": system_specific})
 
-    # 3. actual user input
-    prompt += {"role": "user", "content": user_input}
+    # 4. actual user input
+    prompt.append({"role": "user", "content": user_input})
     
     '''
     prompt = [
@@ -126,10 +128,11 @@ def boolteract(system_input):
     # orden del sistema
     system_prompt = B1
 
-    # Construir el prompt completo
-    prompt=f"[INST] {system_input} [/INST]"+f"[INST] {system_prompt} [/INST]"
-    #prompt="".join(f"[INST] {system_input} [/INST]")+ f"[INST] {system_prompt} [/INST]"
-    #prompt=f"<<SYS>> {system_prompt} <</SYS>>\n"+f"[INST] {system_input} [/INST]\n"
+    # Construir el prompt como lista de mensajes (formato correcto para ephemer)
+    prompt = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": system_input},
+    ]
     
     # Ejecutar modelo y guardar la respuesta
     output = ephemer(prompt)
@@ -168,8 +171,9 @@ def Keypier(q,tms=3): #4 keywords petit
     return str(RL)             #a list of keywords
 
 def SelFromList(lst, q):
-    lst.append("other")
-    lst_str = " , ".join(lst)
+    options = lst.copy()  # Avoid mutating the original list
+    options.append("other")
+    lst_str = " , ".join(options)
     return ObltrtNOapt(f"Classify the expression '{q}' into one of the following topics: {lst_str} ")
 
 
