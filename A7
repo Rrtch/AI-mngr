@@ -1,0 +1,30 @@
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import threading,torch
+
+MODEL_PATH = r"D:\DB\ENVS\LMS\Phi3mini4Kinst"
+tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
+model = AutoModelForCausalLM.from_pretrained(
+    MODEL_PATH,
+    dtype=torch.float16,
+    device_map="cuda",
+)
+
+prompt = "Explícame la teoría M en física en 5000 palabras."
+
+output = None
+
+def generar():
+    global output
+    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+    output_ids = model.generate(**inputs, max_new_tokens=2000)
+    output = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+
+# Hilo paralelo
+thread = threading.Thread(target=generar)
+thread.start()
+thread.join(timeout=5)   # tiempo límite en segundos
+
+if thread.is_alive():
+    print("⏹ Cancelado: se excedió el tiempo límite.")
+else:
+    print(output)

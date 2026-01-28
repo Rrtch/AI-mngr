@@ -1,0 +1,3 @@
+﻿Need to summarize
+AI assistant summarizer
+summarize [text]

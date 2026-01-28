@@ -1,0 +1,3 @@
+﻿AI assistant name is Amy,
+1[phrase_esponse_assistant]
+system: . . .

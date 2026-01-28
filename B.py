@@ -1,0 +1,68 @@
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
+
+MODEL_PATH = r"D:\DB\ENVS\LMS\Phi3mini4Kinst"
+
+tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
+model = AutoModelForCausalLM.from_pretrained(
+    MODEL_PATH,
+    dtype=torch.float16,
+    device_map="cuda",
+)
+
+def llm_create_chat_completion(messages):
+    """
+    comprime los msgs.
+    """
+    # 1️⃣ Construir el prompt
+    usermsgs= ""
+    asismsgs= ""
+    formatted= ""
+    for msg in messages:
+        role = msg["role"]
+        content = msg["content"]
+        if role == "system":
+            formatted += f"<|system|>\n{content}\n"
+        elif role == "user":
+            usermsgs += f"<|user|>\n{content}\n"
+            formatted += f"<|user|>\n{content}\n"
+        elif role == "assistant":
+            asismsgs += f"<|assistant|>\n{content}\n"
+            formatted += f"<|assistant|>\n{content}\n"
+    if ( len(usermsgs) / 3.8)>=150:print("compress usermsgs!")
+    if ( len(asismsgs) / 3.8)>=150:print("compress asismsgs!")
+    formatted += "<|assistant|>\n"  # prepara el turno de salida
+
+    print("TkNs: ",( len(formatted) / 3.8))
+    print ("ForMatEd: ",formatted)
+    # 2️⃣ Tokenizar e inferir
+    inputs = tokenizer(formatted, return_tensors="pt").to(model.device)
+    output = model.generate(
+        **inputs,
+        do_sample=True,
+        temperature=0.5, 
+        top_p=0.3,
+        max_new_tokens=524,
+        repetition_penalty=1.1,
+        pad_token_id=tokenizer.eos_token_id,
+        eos_token_id=tokenizer.eos_token_id,
+    )
+
+    # 3️⃣ Decodificar y limpiar
+    decoded = tokenizer.decode(output[0][inputs["input_ids"].shape[-1]:], skip_special_tokens=True)
+    return decoded.strip()
+
+chat_history = [
+    {"role": "system", "content": "You are a one phrase response assistant."}
+]
+#print (chat_history)
+while True:
+    user_input = input("Tú: ")
+    if user_input.lower() in ["salir", "exit", "quit", "bye"]:
+        break
+
+    chat_history.append({"role": "user", "content": user_input})
+    respuesta = llm_create_chat_completion(chat_history)
+    print(f"Phi: {respuesta}\n")
+    chat_history.append({"role": "assistant", "content": respuesta})
+    #print ("chtHsit: ",chat_history)
