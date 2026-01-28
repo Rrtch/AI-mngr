@@ -1,6 +1,6 @@
-# WPPdefault.js - WhatsApp Web client with watchdog and auto-reconnect features.
-# Includes message timestamp tracking and automatic client restart on inactivity.
-# Communicates with Python backend via TCP socket.
+// WPPdefault.js - WhatsApp Web client with watchdog and auto-reconnect features.
+// Includes message timestamp tracking and automatic client restart on inactivity.
+// Communicates with Python backend via TCP socket.
 
 const net = require("net");
 const { Client, LocalAuth } = require("whatsapp-web.js");
