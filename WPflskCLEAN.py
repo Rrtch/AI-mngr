@@ -1,3 +1,7 @@
+# WPflskCLEAN.py - Flask HTTP server for WhatsApp AI integration.
+# Uses message queue for async processing and sends responses via HTTP callback.
+# Integrates with Node.js WhatsApp bridge at localhost:3000.
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests

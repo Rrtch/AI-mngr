@@ -1,3 +1,7 @@
+# A3.py - Core AI utility functions module for Phi-3-mini model.
+# Provides ephemer, interact, boolteract, Histeract, and keyword extraction functions.
+# Used as a shared module by other scripts for AI-powered text processing.
+
 import torch,os,re
 from transformers import AutoTokenizer, AutoModelForCausalLM
 

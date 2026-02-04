@@ -1,4 +1,8 @@
-﻿import os,re,gc
+# LVL.py - Parameter tuning script for Mistral-7B model using LlamaCPP.
+# Tests multiple combinations of temperature, top_p, and repetition_penalty.
+# Outputs results to log files for analysis.
+
+import os,re,gc
 from llama_cpp import Llama
 
 def read_file_content(path):

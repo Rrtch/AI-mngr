@@ -1,4 +1,8 @@
-﻿import os,re,gc
+# LVL0.py - Core LlamaCPP-based functions module using Mistral-7B model.
+# Provides ephemer, interact, boolteract, Histeract, and keyword extraction.
+# Lower-level implementation for GGUF model inference.
+
+import os,re,gc
 from llama_cpp import Llama
 YEL = "\x1b[33m"
 RES = "\x1b[0m"
